@@ -22,7 +22,3 @@ jobs:
       run: |
         docker build . -t ghcr.io/jesusvillegas0/webapp:latest
         docker push ghcr.io/jesusvillegas0/webapp:latest
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl set image deployment/webapp webapp=ghcr.io/jesusvillegas0/webapp:latest
