@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: webapp-service
 spec:
-  type: NodePort
+  type: NodePort  # Expone el servicio para acceder desde fuera del clúster
   ports:
-    - port: 80
-      targetPort: 5000
+    - port: 80              # Puerto en el que el servicio escucha (externo)
+      targetPort: 5000       # Puerto dentro del contenedor donde está la aplicación
+      nodePort: 32154        # Puerto del nodo para acceso externo (debe estar en el rango 30000-32767)
   selector:
-    app: webapp
+    app: webapp              # Selector que mapea este servicio al pod correspondiente
+
