@@ -1,8 +1,11 @@
-# app.py
 from flask import Flask, request, jsonify
-import psycopg2
 
 app = Flask(__name__)
+
+# Nueva ruta para la raíz
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to the WebApp!"
 
 @app.route('/data', methods=['POST'])
 def insert_data():
